@@ -1,8 +1,8 @@
-
-package com.coderbd.swingEvidence1;
+package com.codderb.form.newpackage;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,12 +11,17 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+/**
+ *
+ * @author User
+ */
 public class Utils {
-    public static void writeToFile(String filename, List<Student> student){
+
+     public static void writeToFile(String filename, List<Student> student){
     
     File destFile = new File(filename + ".txt");
         try {
-            if( destFile.exists()== false){
+            if( destFile.exists() == false){
         System.out.println("We had to make a new file");
         destFile.createNewFile();
     }
@@ -24,7 +29,8 @@ public class Utils {
         PrintWriter out= new PrintWriter(new FileWriter(destFile, true));
         for(Student s : student){
         out.append(s.getId()+", "+s.getName()+", "+s.getAge()+", "+s.getEmail()+", "+s.getGender()+
-                    ", "+s.getCourse()+", "+s.getRound()+", "+s.getComment()+"\n");
+                    ", "+s.getCourse()+", "+s.getRound()+", "+s.getComments()+"\n");
+           
         }
         out.close();
         } catch (Exception e) {
@@ -52,7 +58,5 @@ public class Utils {
         
         
     }
-    
-    
     
 }
